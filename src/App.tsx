@@ -1,5 +1,13 @@
+import useSpells from "./lib/hooks/useSpells";
+import Homepage from "./pages/Homepage/Homepage";
+
 function App() {
-  return <>App</>;
+  const spells = useSpells();
+  return (
+    <>
+      <Homepage />
+    </>
+  );
 }
 
 export default App;
