@@ -1,27 +1,20 @@
+import { Icon } from "@iconify/react/dist/iconify.js";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { fetchSpellByIndex } from "../../lib/services/fetchSpellByIndex";
+import { textMapper } from "../../lib/utils/textMapper";
+import { SpecificationItem } from "./SpecificationItem";
 import {
   Group,
   SectionSubtitle,
-  SpecificationStyled,
-  SpecificationValue,
-  SpecificatonTitle,
+  SectionSubtitleWithLeadingIcon,
   SpellDetailsStyled,
   SpellSpecificationsStyled,
   SpellTitle,
+  Text
 } from "./SpellDetails.styled";
 
 type Props = {};
-
-const SpecificationItem = ({ title, value }: { title: string; value: any }) => {
-  return (
-    <SpecificationStyled>
-      <SpecificatonTitle>{title}</SpecificatonTitle>
-      <SpecificationValue>{value}</SpecificationValue>
-    </SpecificationStyled>
-  );
-};
 
 const SpellDetails = (props: Props) => {
   const { index = "" } = useParams();
@@ -48,6 +41,33 @@ const SpellDetails = (props: Props) => {
           <SpecificationItem title={"SCHOOL"} value={data.school.name} />
         </SpellSpecificationsStyled>
       </Group>
+
+      <Group>
+        <SectionSubtitle>Description</SectionSubtitle>
+        {textMapper(data.desc, true)}
+      </Group>
+
+      {data.higher_level.length > 0 && (
+        <Group>
+          <SectionSubtitleWithLeadingIcon>
+            <Icon
+              icon={"mdi:chevron-double-up"}
+              color="#ff204e"
+              fontSize={25}
+            />{" "}
+            At Higher Levels
+          </SectionSubtitleWithLeadingIcon>
+          {textMapper(data.higher_level, true)}
+        </Group>
+      )}
+
+      {data.material && (
+        <Text>
+          <i>Material: {data.material}</i>
+        </Text>
+      )}
+
+      <Group></Group>
     </SpellDetailsStyled>
   );
 };

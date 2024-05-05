@@ -20,9 +20,16 @@ export const SpellSpecificationsStyled = styled.div`
 export const Group = styled.div``;
 
 export const SectionSubtitle = styled.h3`
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   border-bottom: 1px solid #fefbf6c0;
   padding-bottom: 0.6rem;
+  font-size: 1.1rem;
+`;
+
+export const SectionSubtitleWithLeadingIcon = styled(SectionSubtitle)`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 `;
 
 export const SpecificationStyled = styled.div`
@@ -37,4 +44,10 @@ export const SpecificatonTitle = styled.b`
 `;
 export const SpecificationValue = styled.p`
   color: #fefbf6c0;
+`;
+
+export const Text = styled.p`
+  color: #fefbf6d0;
+  font-size: 1.1rem;
+  line-height: 2rem;
 `;
