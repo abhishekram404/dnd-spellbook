@@ -3,13 +3,19 @@ import SidebarItem, { SidebarItemType } from "./SidebarItem";
 
 type Props = {
   options: SidebarItemType[];
+  onItemSelect?: (item: SidebarItemType) => void;
+  onFavorite?: (item: SidebarItemType) => void;
 };
 export default function Sidebar(props: Props) {
-  const { options } = props;
+  const { options, onItemSelect, onFavorite } = props;
   return (
     <SidebarStyled>
       {options?.map((item) => (
-        <SidebarItem {...item} />
+        <SidebarItem
+          {...item}
+          onClick={() => onItemSelect?.(item)}
+          onFavoriteClick={() => onFavorite?.(item)}
+        />
       ))}
     </SidebarStyled>
   );

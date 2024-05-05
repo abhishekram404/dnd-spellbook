@@ -7,14 +7,21 @@ export type SidebarItemType = {
   url: string;
 };
 
-type Props = SidebarItemType & {};
+type Props = SidebarItemType & {
+  onClick?: VoidFunction;
+  onFavoriteClick?: VoidFunction;
+};
 
 export default function SidebarItem(props: Props) {
-  const { index, level, name, url } = props;
+  const { name, onClick, onFavoriteClick } = props;
+  const handleFavorite = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onFavoriteClick?.();
+  };
   return (
-    <SidebarItemStyled>
+    <SidebarItemStyled onClick={onClick}>
       <SidebarItemTitle>{name}</SidebarItemTitle>
-      <FavoriteButton isFavorite={false} />
+      <FavoriteButton isFavorite={false} onClick={handleFavorite} />
     </SidebarItemStyled>
   );
 }

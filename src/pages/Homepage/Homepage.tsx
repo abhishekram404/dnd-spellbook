@@ -5,14 +5,16 @@ import { HomepageBodyStyled, HomepageStyled } from "./Homepage.styled";
 
 export default function Homepage() {
   const { spells, isSpellsLoading } = useSpells();
-  console.log(spells);
 
-  if(isSpellsLoading) return "Loading"
   return (
     <HomepageStyled>
       <Navbar />
       <HomepageBodyStyled>
-        <Sidebar options={spells.results} />
+        <Sidebar
+          options={spells.results}
+          onFavorite={(item) => console.log("favorite", item)}
+          onItemSelect={(item) => console.log("select", item)}
+        />
         <div>Main</div>
       </HomepageBodyStyled>
     </HomepageStyled>
