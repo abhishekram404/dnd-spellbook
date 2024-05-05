@@ -1,5 +1,6 @@
 import { RouteObject } from "react-router-dom";
 import Homepage from "../pages/Homepage/Homepage";
+import SpellDetails from "../pages/SpellDetails/SpellDetails";
 
 export const routes: RouteObject[] = [
   {
@@ -12,7 +13,7 @@ export const routes: RouteObject[] = [
     children: [
       {
         path: ":index",
-        element: <div>SPell</div>,
+        element: <SpellDetails />,
       },
     ],
   },

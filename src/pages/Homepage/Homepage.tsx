@@ -15,7 +15,6 @@ export default function Homepage() {
         <Sidebar
           options={spells?.results}
           onFavorite={(item) => console.log("favorite", item)}
-          onItemSelect={(item) => console.log("select", item)}
         />
         <div>
           <Outlet />
