@@ -6,4 +6,14 @@ export const routes: RouteObject[] = [
     path: "/",
     element: <Homepage />,
   },
+  {
+    path: "/spells",
+    element: <Homepage />,
+    children: [
+      {
+        path: ":index",
+        element: <div>SPell</div>,
+      },
+    ],
+  },
 ];

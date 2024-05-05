@@ -15,7 +15,8 @@ type Props = SidebarItemType & {
 export default function SidebarItem(props: Props) {
   const { name, onClick, onFavoriteClick } = props;
   const handleFavorite = (e: React.MouseEvent) => {
-    e.stopPropagation();
+    e.preventDefault(); // prevents the Link component from catching the click event
+    e.stopPropagation(); // prevents the event bubbling
     onFavoriteClick?.();
   };
   return (
