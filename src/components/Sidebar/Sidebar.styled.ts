@@ -15,10 +15,15 @@ export const SidebarItemStyled = styled.div`
   transition: all 0.2s linear;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   &:not(:last-child) {
     border-bottom: 1px solid #fefbf640;
   }
+
+  &:hover{
+    background-color: #fefbf610;
+  }
 `;
 
-export const SidebarItemTitle = styled.h5``;
+export const SidebarItemTitle = styled.p``;
