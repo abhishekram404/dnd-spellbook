@@ -8,19 +8,20 @@ export type SidebarItemType = {
 };
 
 type Props = SidebarItemType & {
+  isActive?: boolean;
   onClick?: VoidFunction;
   onFavoriteClick?: VoidFunction;
 };
 
 export default function SidebarItem(props: Props) {
-  const { name, onClick, onFavoriteClick } = props;
+  const { name, isActive, onClick, onFavoriteClick } = props;
   const handleFavorite = (e: React.MouseEvent) => {
     e.preventDefault(); // prevents the Link component from catching the click event
     e.stopPropagation(); // prevents the event bubbling
     onFavoriteClick?.();
   };
   return (
-    <SidebarItemStyled onClick={onClick}>
+    <SidebarItemStyled onClick={onClick} isActive={isActive}>
       <SidebarItemTitle>{name}</SidebarItemTitle>
       <FavoriteButton isFavorite={false} onClick={handleFavorite} />
     </SidebarItemStyled>

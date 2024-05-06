@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { SidebarStyled } from "./Sidebar.styled";
 import SidebarItem, { SidebarItemType } from "./SidebarItem";
 
@@ -8,12 +8,17 @@ type Props = {
   onFavorite?: (item: SidebarItemType) => void;
 };
 export default function Sidebar(props: Props) {
+  const { index } = useParams();
   const { options, onItemSelect, onFavorite } = props;
   return (
     <SidebarStyled>
       {options?.map((item) => (
         <Link to={item.index}>
-          <SidebarItem {...item} onFavoriteClick={() => onFavorite?.(item)} />
+          <SidebarItem
+            {...item}
+            onFavoriteClick={() => onFavorite?.(item)}
+            isActive={index === item.index}
+          />
         </Link>
       ))}
     </SidebarStyled>

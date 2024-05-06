@@ -8,7 +8,7 @@ export const SidebarStyled = styled.div`
   overflow-y: auto;
 `;
 
-export const SidebarItemStyled = styled.div`
+export const SidebarItemStyled = styled.div<{ isActive?: boolean }>`
   padding: 1rem;
   color: #fefbf6;
   cursor: pointer;
@@ -16,14 +16,18 @@ export const SidebarItemStyled = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: ${(props) => (props.isActive ? "#fefbf640" : "none")};
+  text-decoration: none;
 
   &:not(:last-child) {
     border-bottom: 1px solid #fefbf640;
   }
 
-  &:hover{
+  &:hover {
     background-color: #fefbf610;
   }
 `;
 
-export const SidebarItemTitle = styled.p``;
+export const SidebarItemTitle = styled.p`
+  text-decoration: none;
+`;
