@@ -13,7 +13,7 @@ export default function Sidebar(props: Props) {
   return (
     <SidebarStyled>
       {options?.map((item) => (
-        <Link to={item.index}>
+        <Link to={`/spells/${item.index}`}>
           <SidebarItem
             {...item}
             onFavoriteClick={() => onFavorite?.(item)}
