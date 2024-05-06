@@ -11,7 +11,13 @@ export default function Homepage() {
   const debouncedSearchQuery = useDebouncedValue(searchQuery, 400);
   const debouncedSearchQueryTrimmed = debouncedSearchQuery.trim();
 
-  const { spells, searchResults, isSpellsLoading } = useSpells({
+  const {
+    spells,
+    searchResults,
+    isSpellsLoading,
+    favoriteSpells,
+    markSpellAsFavorite,
+  } = useSpells({
     searchQuery: debouncedSearchQueryTrimmed,
   });
 
@@ -34,7 +40,8 @@ export default function Homepage() {
           options={sidebarOptions}
           searchedQuery={debouncedSearchQueryTrimmed}
           isLoading={isSpellsLoading}
-          onFavorite={(item) => console.log("favorite", item)}
+          onFavorite={(item) => markSpellAsFavorite(item.index)}
+          favoriteSpells={favoriteSpells}
         />
         <div>
           <Outlet />

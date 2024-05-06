@@ -9,13 +9,15 @@ type Props = {
   options: SidebarItemType[];
   searchedQuery?: string;
   isLoading?: boolean;
+  favoriteSpells?: string[];
   onItemSelect?: (item: SidebarItemType) => void;
   onFavorite?: (item: SidebarItemType) => void;
 };
 
 export default function Sidebar(props: Props) {
   const { index } = useParams();
-  const { options, searchedQuery, isLoading, onFavorite } = props;
+  const { options, searchedQuery, isLoading, favoriteSpells, onFavorite } =
+    props;
 
   return (
     <SidebarStyled>
@@ -43,6 +45,7 @@ export default function Sidebar(props: Props) {
               {...item}
               onFavoriteClick={() => onFavorite?.(item)}
               isActive={index === item.index}
+              isFavorite={favoriteSpells?.includes(item.index)}
             />
           ))}
         </>
