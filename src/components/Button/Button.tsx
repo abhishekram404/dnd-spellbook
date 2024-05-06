@@ -6,6 +6,6 @@ type Props = {
   variant: "default" | "link";
 };
 
-export default function Button({ children }: Props) {
-  return <StyledButton>{children}</StyledButton>;
+export default function Button({ children, variant }: Props) {
+  return <StyledButton isLink={variant === "link"}>{children}</StyledButton>;
 }

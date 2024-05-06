@@ -4,8 +4,8 @@ import { Text } from "../../pages/SpellDetails/SpellDetails.styled";
 export const SidebarStyled = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid #fefbf6;
-  height: 800px;
+  border-right: 1px solid #fefbf610;
+  flex: 1;
   overflow-y: auto;
 `;
 
