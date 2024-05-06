@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const NavbarStyled = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 1rem;
   background-color: #ff204e;
 `;
