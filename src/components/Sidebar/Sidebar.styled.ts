@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Text } from "../../pages/SpellDetails/SpellDetails.styled";
 
 export const SidebarStyled = styled.div`
   display: flex;
@@ -31,3 +32,9 @@ export const SidebarItemStyled = styled.div<{ isActive?: boolean }>`
 export const SidebarItemTitle = styled.p`
   text-decoration: none;
 `;
+
+export const SidebarSubtitle = styled(Text)`
+  padding: 1rem;
+  padding-bottom: 0;
+  color: #fefbf680;
+`

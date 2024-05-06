@@ -1,33 +1,46 @@
 import { Link, useParams } from "react-router-dom";
-import { SidebarStyled } from "./Sidebar.styled";
+import { SidebarStyled, SidebarSubtitle } from "./Sidebar.styled";
 import SidebarItem, { SidebarItemType } from "./SidebarItem";
-import { QueryCache } from "@tanstack/react-query";
 
 type Props = {
   options: SidebarItemType[];
+  searchedQuery?: string;
+  isLoading?: boolean;
   onItemSelect?: (item: SidebarItemType) => void;
   onFavorite?: (item: SidebarItemType) => void;
 };
-const queryCache = new QueryCache();
 
 export default function Sidebar(props: Props) {
   const { index } = useParams();
-  const { options, onItemSelect, onFavorite } = props;
-  const query = queryCache.find({
-    queryKey: ["search-results"]
-  });
-  console.log('results',query);
+  const { options, searchedQuery, isLoading, onItemSelect, onFavorite } = props;
+
   return (
     <SidebarStyled>
-      {options?.map((item) => (
-        <Link to={`/spells/${item.index}`}>
-          <SidebarItem
-            {...item}
-            onFavoriteClick={() => onFavorite?.(item)}
-            isActive={index === item.index}
-          />
-        </Link>
-      ))}
+      {isLoading ? (
+        <SidebarSubtitle>Loading...</SidebarSubtitle>
+      ) : !options?.length ? (
+        <SidebarSubtitle>No results found</SidebarSubtitle>
+      ) : (
+        <>
+          {searchedQuery?.trim() && (
+            <SidebarSubtitle>
+              Showing results for{" "}
+              <i>
+                <b>{searchedQuery}</b>
+              </i>
+            </SidebarSubtitle>
+          )}
+          {options?.map((item) => (
+            <Link to={`/spells/${item.index}`}>
+              <SidebarItem
+                {...item}
+                onFavoriteClick={() => onFavorite?.(item)}
+                isActive={index === item.index}
+              />
+            </Link>
+          ))}
+        </>
+      )}
     </SidebarStyled>
   );
 }

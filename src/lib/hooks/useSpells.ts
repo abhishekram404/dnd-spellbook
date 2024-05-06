@@ -8,7 +8,7 @@ export default function useSpells({
   searchQuery: string;
 }) {
   // fetch all spells
-  const { data, isFetching: isSpellsLoading } = useQuery({
+  const { data, isLoading: isSpellsLoading } = useQuery({
     queryKey: ["spells"],
     queryFn: fetchSpells,
   });

@@ -1,20 +1,24 @@
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import useDebouncedValue from "../../lib/hooks/useDebouncedValue";
 import useSpells from "../../lib/hooks/useSpells";
 import { HomepageBodyStyled, HomepageStyled } from "./Homepage.styled";
-import React, { useState } from "react";
-import useDebouncedValue from "../../lib/hooks/useDebouncedValue";
 
 export default function Homepage() {
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedSearchQuery = useDebouncedValue(searchQuery, 400);
-  const { spells, searchResults } = useSpells({
-    searchQuery: debouncedSearchQuery,
-  });
-  const searchResultsArr = searchResults?.results;
+  const debouncedSearchQueryTrimmed = debouncedSearchQuery.trim();
 
-  const sidebarOptions = searchResultsArr?.length
+  const { spells, searchResults, isSpellsLoading } = useSpells({
+    searchQuery: debouncedSearchQueryTrimmed,
+  });
+
+  const searchResultsArr = searchResults?.results?.length
+    ? searchResults?.results
+    : [];
+  const sidebarOptions = debouncedSearchQueryTrimmed
     ? searchResultsArr
     : spells?.results;
 
@@ -22,13 +26,14 @@ export default function Homepage() {
     setSearchQuery(e.target.value);
   };
 
-  console.log({ searchResults });
   return (
     <HomepageStyled>
       <Navbar searchQuery={searchQuery} onSearchChange={handleSearchChange} />
       <HomepageBodyStyled>
         <Sidebar
           options={sidebarOptions}
+          searchedQuery={debouncedSearchQueryTrimmed}
+          isLoading={isSpellsLoading}
           onFavorite={(item) => console.log("favorite", item)}
         />
         <div>
