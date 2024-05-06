@@ -7,5 +7,9 @@ export const NavbarStyled = styled.nav`
 
 export const AppTitle = styled.h2`
   font-family: Lato, sans-serif;
-  color: #FEFBF6;
+
+  > * {
+    color: #fefbf6;
+    text-decoration: none;
+  }
 `;

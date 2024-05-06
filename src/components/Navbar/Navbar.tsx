@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom";
 import { AppTitle, NavbarStyled } from "./Navbar.styled";
 
 export default function Navbar() {
   return (
     <NavbarStyled>
-      <AppTitle>D&D Spellbook</AppTitle>
+      <AppTitle>
+        <Link to="/">D&D Spellbook</Link>
+      </AppTitle>
     </NavbarStyled>
   );
 }
