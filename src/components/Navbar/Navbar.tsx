@@ -1,6 +1,7 @@
+import { Icon } from "@iconify/react/dist/iconify.js";
 import { Link } from "react-router-dom";
+import Input from "../Input/Input";
 import { AppTitle, NavbarStyled } from "./Navbar.styled";
-import { InputStyled } from "../Input/Input.styled";
 
 export default function Navbar() {
   return (
@@ -10,7 +11,10 @@ export default function Navbar() {
       </AppTitle>
 
       <div>
-        <InputStyled placeholder="Search spells" />{" "}
+        <Input
+          placeholder="Search spells"
+          leftIcon={<Icon icon="bx:search" color="#fefbf6" fontSize={20} />}
+        />{" "}
       </div>
     </NavbarStyled>
   );

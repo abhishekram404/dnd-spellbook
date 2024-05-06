@@ -1,9 +1,19 @@
-import React from "react";
-import { InputStyled } from "./Input.styled";
+import React, { ReactNode } from "react";
+import { InputRoot, InputStyled } from "./Input.styled";
 
-type Props = React.InputHTMLAttributes<HTMLInputElement> & {};
+type Props = React.InputHTMLAttributes<HTMLInputElement> & {
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
+};
 export const Input = (props: Props) => {
-  return <InputStyled {...props} />;
+  const { leftIcon, rightIcon, ...restProps } = props;
+  return (
+    <InputRoot>
+      {leftIcon}
+      <InputStyled {...restProps} />
+      {rightIcon}
+    </InputRoot>
+  );
 };
 
 export default Input;
