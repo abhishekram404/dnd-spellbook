@@ -32,6 +32,10 @@ export default function Homepage() {
     setSearchQuery(e.target.value);
   };
 
+  const handleClearSearch = () => {
+    setSearchQuery("");
+  };
+
   return (
     <HomepageStyled>
       <Navbar searchQuery={searchQuery} onSearchChange={handleSearchChange} />
@@ -40,8 +44,9 @@ export default function Homepage() {
           options={sidebarOptions}
           searchedQuery={debouncedSearchQueryTrimmed}
           isLoading={isSpellsLoading}
-          onFavorite={(item) => markSpellAsFavorite(item.index)}
           favoriteSpells={favoriteSpells}
+          onFavorite={(item) => markSpellAsFavorite(item.index)}
+          onClearSearch={handleClearSearch}
         />
         <div>
           <Outlet />

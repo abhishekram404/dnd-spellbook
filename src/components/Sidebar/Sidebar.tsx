@@ -1,7 +1,6 @@
-import { Icon } from "@iconify/react/dist/iconify.js";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { BoldItalic } from "../BoldItalic/BoldItalic";
-import Button from "../Button/Button";
+import { SidebarNoResult } from "./Sidebar.components";
 import { SidebarStyled, SidebarSubtitle } from "./Sidebar.styled";
 import SidebarItem, { SidebarItemType } from "./SidebarItem";
 
@@ -12,26 +11,29 @@ type Props = {
   favoriteSpells?: string[];
   onItemSelect?: (item: SidebarItemType) => void;
   onFavorite?: (item: SidebarItemType) => void;
+  onClearSearch?: VoidFunction;
 };
 
 export default function Sidebar(props: Props) {
   const { index } = useParams();
-  const { options, searchedQuery, isLoading, favoriteSpells, onFavorite } =
-    props;
+  const {
+    options,
+    searchedQuery,
+    isLoading,
+    favoriteSpells,
+    onFavorite,
+    onClearSearch,
+  } = props;
 
   return (
     <SidebarStyled>
       {isLoading ? (
         <SidebarSubtitle>Loading...</SidebarSubtitle>
       ) : !options?.length ? (
-        <SidebarSubtitle>
-          No results found for <BoldItalic>{searchedQuery}</BoldItalic>
-          <br />
-          <Button variant="link">
-            <Icon icon={"mdi:clear-outline"} />
-            Clear search
-          </Button>
-        </SidebarSubtitle>
+        <SidebarNoResult
+          searchQuery={searchedQuery}
+          onClearSearch={onClearSearch}
+        />
       ) : (
         <>
           {searchedQuery?.trim() && (
