@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Text } from "../../pages/SpellDetails/SpellDetails.styled";
 
@@ -9,7 +10,7 @@ export const SidebarStyled = styled.div`
   overflow-y: auto;
 `;
 
-export const SidebarItemStyled = styled.div<{ isActive?: boolean }>`
+export const SidebarItemStyled = styled(Link)<{ isActive?: boolean }>`
   padding: 1rem;
   color: #fefbf6;
   cursor: pointer;

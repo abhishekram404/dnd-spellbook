@@ -39,13 +39,11 @@ export default function Sidebar(props: Props) {
             </SidebarSubtitle>
           )}
           {options?.map((item) => (
-            <Link to={`/spells/${item.index}`}>
-              <SidebarItem
-                {...item}
-                onFavoriteClick={() => onFavorite?.(item)}
-                isActive={index === item.index}
-              />
-            </Link>
+            <SidebarItem
+              {...item}
+              onFavoriteClick={() => onFavorite?.(item)}
+              isActive={index === item.index}
+            />
           ))}
         </>
       )}
