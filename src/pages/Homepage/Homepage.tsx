@@ -3,17 +3,32 @@ import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import useSpells from "../../lib/hooks/useSpells";
 import { HomepageBodyStyled, HomepageStyled } from "./Homepage.styled";
+import React, { useState } from "react";
+import useDebouncedValue from "../../lib/hooks/useDebouncedValue";
 
 export default function Homepage() {
-  const { spells, isSpellsLoading } = useSpells();
+  const [searchQuery, setSearchQuery] = useState("");
+  const debouncedSearchQuery = useDebouncedValue(searchQuery, 400);
+  const { spells, searchResults } = useSpells({
+    searchQuery: debouncedSearchQuery,
+  });
+  const searchResultsArr = searchResults?.results;
 
-  console.log(spells);
+  const sidebarOptions = searchResultsArr?.length
+    ? searchResultsArr
+    : spells?.results;
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
+  console.log({ searchResults });
   return (
     <HomepageStyled>
-      <Navbar />
+      <Navbar searchQuery={searchQuery} onSearchChange={handleSearchChange} />
       <HomepageBodyStyled>
         <Sidebar
-          options={spells?.results}
+          options={sidebarOptions}
           onFavorite={(item) => console.log("favorite", item)}
         />
         <div>
