@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { BoldItalic } from "../BoldItalic/BoldItalic";
 import { SidebarStyled, SidebarSubtitle } from "./Sidebar.styled";
 import SidebarItem, { SidebarItemType } from "./SidebarItem";
+import Button from "../Button/Button";
 
 type Props = {
   options: SidebarItemType[];
@@ -22,6 +23,8 @@ export default function Sidebar(props: Props) {
       ) : !options?.length ? (
         <SidebarSubtitle>
           No results found for <BoldItalic>{searchedQuery}</BoldItalic>
+          <br />
+          <Button>Clear search</Button>
         </SidebarSubtitle>
       ) : (
         <>
