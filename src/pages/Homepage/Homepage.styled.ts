@@ -9,5 +9,5 @@ export const HomepageStyled = styled.div`
 export const HomepageBodyStyled = styled.div`
   display: grid;
   grid-template-columns: 300px 1fr;
-  flex: 1;
+  height: 100%;
 `;
