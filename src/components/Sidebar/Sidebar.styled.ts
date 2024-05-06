@@ -37,4 +37,4 @@ export const SidebarSubtitle = styled(Text)`
   padding: 1rem;
   padding-bottom: 0;
   color: #fefbf680;
-`
+`;
