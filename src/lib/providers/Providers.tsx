@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { PropsWithChildren } from "react";
-import FiltersProvider from "./providers/FiltersProvider";
+import FiltersProvider from "./FiltersProvider";
 
 const queryClient = new QueryClient();
 

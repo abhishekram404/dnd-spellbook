@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import Providers from "./lib/Providers.tsx";
+import Providers from "./lib/providers/Providers.tsx";
 import { routes } from "./lib/routes.tsx";
 
 axios.defaults.baseURL = "https://www.dnd5eapi.co/api";
