@@ -38,7 +38,7 @@ export default function Sidebar(props: Props) {
         <>
           {searchedQuery?.trim() && (
             <SidebarSubtitle>
-              Showing results for{" "}
+              Showing {options?.length} results for{" "}
               <BoldItalic title={searchedQuery}>{searchedQuery}</BoldItalic>
             </SidebarSubtitle>
           )}
