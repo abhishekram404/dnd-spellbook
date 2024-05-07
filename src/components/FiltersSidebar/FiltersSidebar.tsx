@@ -1,24 +1,21 @@
+import Button from "../Button/Button";
 import Dropdown from "../Dropdown/Dropdown";
-import { SidebarStyled, SidebarSubtitle } from "../Sidebar/Sidebar.styled";
-import { FiltersSidebarWrapper } from "./FiltersSidebar.styled";
-const schools = [
-  { label: "Enchantment", value: "Enchantment" },
-  { label: "Abjuration", value: "Abjuration" },
-  { label: "Conjuration", value: "Conjuration" },
-  { label: "Divination", value: "Divination" },
-  { label: "Illusion", value: "Illusion" },
-  { label: "Evocation", value: "Evocation" },
-  { label: "Necromancy", value: "Necromancy" },
-  { label: "Transmutation", value: "Transmutation" },
-];
+import { SidebarSubtitle } from "../Sidebar/Sidebar.styled";
+import {
+  FiltersSidebarStyled,
+  FiltersSidebarWrapper,
+} from "./FiltersSidebar.styled";
+import { levels, schools } from "./FiltersSidebar.utils";
 
 export default function FiltersSidebar() {
   return (
-    <SidebarStyled>
+    <FiltersSidebarStyled>
       <SidebarSubtitle>Filters</SidebarSubtitle>
       <FiltersSidebarWrapper>
         <Dropdown title={"School"} options={schools} />
+        <Dropdown title={"Level"} options={levels} />
+        <Button variant="default">Apply</Button>
       </FiltersSidebarWrapper>
-    </SidebarStyled>
+    </FiltersSidebarStyled>
   );
 }

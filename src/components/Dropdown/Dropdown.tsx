@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export type DropdownOption = {
   label: string;
-  value: string;
+  value: string | number;
 };
 
 type Props = {

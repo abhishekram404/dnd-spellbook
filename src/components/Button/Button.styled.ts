@@ -11,6 +11,7 @@ export const StyledButton = styled.button<{ isLink?: boolean }>`
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 
   ${(props) =>
