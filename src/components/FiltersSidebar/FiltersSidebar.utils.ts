@@ -1,4 +1,5 @@
 export const schools = [
+  { label: "Select school", value: "" },
   { label: "Enchantment", value: "Enchantment" },
   { label: "Abjuration", value: "Abjuration" },
   { label: "Conjuration", value: "Conjuration" },
@@ -10,6 +11,7 @@ export const schools = [
 ];
 
 export const levels = [
+  { label: "Select level", value: "" },
   { label: "0", value: 0 },
   { label: "1", value: 1 },
   { label: "2", value: 2 },
