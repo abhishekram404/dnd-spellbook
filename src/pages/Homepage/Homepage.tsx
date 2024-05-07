@@ -10,7 +10,8 @@ import useSpells from "../../lib/hooks/useSpells";
 import { HomepageBodyStyled, HomepageStyled } from "./Homepage.styled";
 
 export default function Homepage() {
-  const { filters } = useFilters();
+  const { filters, showFavoritesOnly } = useFilters();
+  const { favorites, markSpellAsFavorite } = useFavoriteSpells();
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedSearchQuery = useDebouncedValue(searchQuery, 400);
   const debouncedSearchQueryTrimmed = debouncedSearchQuery.trim();
@@ -18,9 +19,9 @@ export default function Homepage() {
   const { spells, isSpellsLoading } = useSpells({
     searchQuery: debouncedSearchQueryTrimmed,
     filters,
+    showFavoritesOnly,
+    favorites,
   });
-
-  const { favorites, markSpellAsFavorite } = useFavoriteSpells();
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);

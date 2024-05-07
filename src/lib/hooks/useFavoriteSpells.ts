@@ -4,7 +4,7 @@ import { LocalStorageService } from "../services/LocalStorageService";
 export default function useFavoriteSpells() {
   const initialFavoriteSpells =
     LocalStorageService.get<string[]>("favorite-spells");
-
+    
   const [favorites, setFavorites] = useState(initialFavoriteSpells || []);
 
   const removeSpellFromFavorites = (index: string) => {

@@ -9,7 +9,7 @@ type Props = {
   searchedQuery?: string;
   isLoading?: boolean;
   favoriteSpells?: string[];
-  filters: Filters;
+  filters?: Filters;
   onItemSelect?: (item: SidebarItemType) => void;
   onFavorite?: (item: SidebarItemType) => void;
   onClearSearch?: VoidFunction;

@@ -1,5 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
+import { SidebarItemType } from "../../components/Sidebar/SidebarItem";
 import { fetchSpells } from "../services/fetchSpells";
+import { useMemo } from "react";
 
 type Props = {
   searchQuery: string;
@@ -7,9 +9,16 @@ type Props = {
     school?: string;
     level?: string | number;
   };
+  showFavoritesOnly?: boolean;
+  favorites?: string[];
 };
 
-export default function useSpells({ searchQuery = "", filters }: Props) {
+export default function useSpells({
+  searchQuery = "",
+  filters,
+  showFavoritesOnly,
+  favorites,
+}: Props) {
   // fetch all spells, also supports params like: name, school, level
   const { data, isLoading: isSpellsLoading } = useQuery({
     queryKey: ["spells", searchQuery, filters],
@@ -21,8 +30,18 @@ export default function useSpells({ searchQuery = "", filters }: Props) {
       }),
   });
 
+  const results = useMemo(
+    () =>
+      showFavoritesOnly
+        ? data?.results.filter((item: SidebarItemType) =>
+            favorites?.includes(item.index)
+          )
+        : data?.results,
+    [data?.results, showFavoritesOnly, favorites]
+  );
+
   return {
-    spells: data?.results,
+    spells: results,
     isSpellsLoading: isSpellsLoading,
   };
 }
