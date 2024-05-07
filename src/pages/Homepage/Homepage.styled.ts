@@ -8,6 +8,6 @@ export const HomepageStyled = styled.div`
 
 export const HomepageBodyStyled = styled.div`
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 300px 300px 1fr;
   height: calc(100% - 73px);
 `;
