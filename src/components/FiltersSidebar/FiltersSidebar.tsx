@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import useFilters from "../../lib/hooks/useFilters";
 import Button from "../Button/Button";
 import Dropdown from "../Dropdown/Dropdown";
@@ -9,9 +9,10 @@ import {
   FiltersSidebarWrapper,
 } from "./FiltersSidebar.styled";
 import { levels, schools } from "./FiltersSidebar.utils";
+import Checkbox from "../Checkbox/Checkbox";
 
 export default function FiltersSidebar() {
-  const { setFilters } = useFilters();
+  const { showFavoritesOnly, setFilters, setShowFavoritesOnly } = useFilters();
   const [values, setValues] = useState({
     school: "",
     level: "",
@@ -28,11 +29,17 @@ export default function FiltersSidebar() {
 
   // when clicking on apply, set the filters to the filters context
   const handleApply = () => {
-    setFilters(values);
+    setFilters?.(values);
   };
 
   const clearAllFilters = () => {
-    setFilters({});
+    setFilters?.({});
+  };
+
+  const handleShowFavoritesChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setShowFavoritesOnly?.(e.target.checked);
   };
 
   return (
@@ -57,6 +64,12 @@ export default function FiltersSidebar() {
             Apply
           </Button>
         </ButtonsGroup>
+        <hr />
+        <Checkbox
+          label="Show favorites only"
+          checked={showFavoritesOnly}
+          onChange={handleShowFavoritesChange}
+        />
       </FiltersSidebarWrapper>
     </FiltersSidebarStyled>
   );

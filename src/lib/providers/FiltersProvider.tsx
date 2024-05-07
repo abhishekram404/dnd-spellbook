@@ -6,21 +6,28 @@ export type Filters = {
 };
 
 type ContextType = {
-  filters: Filters;
-  setFilters: React.Dispatch<React.SetStateAction<Filters>>;
+  filters?: Filters;
+  showFavoritesOnly?: boolean;
+  setShowFavoritesOnly?: React.Dispatch<React.SetStateAction<boolean>>;
+  setFilters?: React.Dispatch<React.SetStateAction<Filters>>;
 };
 
 export const FiltersContext = createContext<ContextType>({
   filters: {},
+  showFavoritesOnly: false,
   setFilters: () => {},
+  setShowFavoritesOnly: () => {},
 });
 
 export default function FiltersProvider({ children }: PropsWithChildren) {
   const [filters, setFilters] = useState<Filters>({});
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
 
   const providerValues: ContextType = {
     filters,
+    showFavoritesOnly,
     setFilters,
+    setShowFavoritesOnly,
   };
 
   return (
