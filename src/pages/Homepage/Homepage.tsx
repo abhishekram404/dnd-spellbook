@@ -5,26 +5,22 @@ import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import useDebouncedValue from "../../lib/hooks/useDebouncedValue";
 import useFavoriteSpells from "../../lib/hooks/useFavoriteSpells";
+import useFilters from "../../lib/hooks/useFilters";
 import useSpells from "../../lib/hooks/useSpells";
 import { HomepageBodyStyled, HomepageStyled } from "./Homepage.styled";
 
 export default function Homepage() {
+  const { filters } = useFilters();
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedSearchQuery = useDebouncedValue(searchQuery, 400);
   const debouncedSearchQueryTrimmed = debouncedSearchQuery.trim();
 
-  const { spells, searchResults, isSpellsLoading } = useSpells({
+  const { spells, isSpellsLoading } = useSpells({
     searchQuery: debouncedSearchQueryTrimmed,
+    filters,
   });
 
   const { favorites, markSpellAsFavorite } = useFavoriteSpells();
-
-  const searchResultsArr = searchResults?.results?.length
-    ? searchResults?.results
-    : [];
-  const sidebarOptions = debouncedSearchQueryTrimmed
-    ? searchResultsArr
-    : spells?.results;
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -40,7 +36,7 @@ export default function Homepage() {
       <HomepageBodyStyled>
         <FiltersSidebar />
         <Sidebar
-          options={sidebarOptions}
+          options={spells}
           searchedQuery={debouncedSearchQueryTrimmed}
           isLoading={isSpellsLoading}
           favoriteSpells={favorites}

@@ -1,3 +1,8 @@
 import axios from "axios";
 
-export const fetchSpells = async () => (await axios.get("/spells")).data;
+export const fetchSpells = async (params: object) =>
+  (
+    await axios.get("/spells", {
+      params,
+    })
+  ).data;

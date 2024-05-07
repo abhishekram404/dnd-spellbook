@@ -1,28 +1,28 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchSpells } from "../services/fetchSpells";
-import { searchSpellByName } from "../services/searchSpellByName";
 
-export default function useSpells({
-  searchQuery = "",
-}: {
+type Props = {
   searchQuery: string;
-}) {
-  // fetch all spells
-  const { data, isLoading: isSpellsLoading } = useQuery({
-    queryKey: ["spells"],
-    queryFn: fetchSpells,
-  });
+  filters?: {
+    school?: string;
+    level?: string | number;
+  };
+};
 
-  // search spells by name
-  const { data: searchResults, isLoading: isSearchResultsLoading } = useQuery({
-    queryKey: ["search-results", searchQuery],
-    queryFn: () => searchSpellByName(searchQuery),
-    enabled: !!searchQuery?.trim(),
+export default function useSpells({ searchQuery = "", filters }: Props) {
+  // fetch all spells, also supports params like: name, school, level
+  const { data, isLoading: isSpellsLoading } = useQuery({
+    queryKey: ["spells", searchQuery, filters],
+    queryFn: () =>
+      fetchSpells({
+        name: searchQuery || undefined,
+        school: filters?.school || undefined,
+        level: filters?.level || undefined,
+      }),
   });
 
   return {
-    spells: data,
-    searchResults,
-    isSpellsLoading: isSpellsLoading || isSearchResultsLoading,
+    spells: data?.results,
+    isSpellsLoading: isSpellsLoading,
   };
 }
