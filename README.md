@@ -1,30 +1,32 @@
-# React + TypeScript + Vite
+# D&D Spellbook
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Intro
 
-Currently, two official plugins are available:
+This project is built by **Keshav Kishor Ram** as a coding assignment for a Front-end developer position at **CodeDuo**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies used
 
-## Expanding the ESLint configuration
+- React
+- TypeScript
+- Vite
+- Tanstack Query (formerly React Query)
+- React Router
+- Styled Components
+- Axios
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Programming concepts implemented
 
-- Configure the top-level `parserOptions` property like this:
+- Debouncing
+- Caching (managed by Tanstack Query)
+- Filtering
+- Conditional Rendering
+- API Calls
+- React Hooks
+- Local Storge API
+- React Context API
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Find me on
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+<a href="https://www.linkedin.com/in/abhishekram404/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+<a href="https://www.discord.com/users/577444294219005985" target="_blank"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"/></a>
+<a href="https://www.github.com/abhishekram404" target="_blank"><img src="https://img.shields.io/badge/Github-ffffff?style=for-the-badge&logo=github&logoColor=black"/></a>
