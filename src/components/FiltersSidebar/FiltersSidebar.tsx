@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import useFilters from "../../lib/hooks/useFilters";
 import Button from "../Button/Button";
+import Checkbox from "../Checkbox/Checkbox";
+import Divider from "../Divider/Divider";
 import Dropdown from "../Dropdown/Dropdown";
 import { SidebarSubtitle } from "../Sidebar/Sidebar.styled";
 import {
@@ -9,7 +11,6 @@ import {
   FiltersSidebarWrapper,
 } from "./FiltersSidebar.styled";
 import { levels, schools } from "./FiltersSidebar.utils";
-import Checkbox from "../Checkbox/Checkbox";
 
 export default function FiltersSidebar() {
   const { showFavoritesOnly, setFilters, setShowFavoritesOnly } = useFilters();
@@ -64,7 +65,7 @@ export default function FiltersSidebar() {
             Apply
           </Button>
         </ButtonsGroup>
-        <hr />
+        <Divider />
         <Checkbox
           label="Show favorites only"
           checked={showFavoritesOnly}

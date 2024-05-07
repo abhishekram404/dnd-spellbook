@@ -21,7 +21,7 @@ export const Group = styled.div``;
 
 export const SectionSubtitle = styled.h3`
   margin-bottom: 0.5rem;
-  border-bottom: 1px solid #fefbf6c0;
+  border-bottom: 1px solid #fefbf640;
   padding-bottom: 0.6rem;
   font-size: 1.1rem;
 `;
