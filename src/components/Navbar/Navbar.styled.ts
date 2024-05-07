@@ -8,6 +8,12 @@ export const NavbarStyled = styled.nav`
   background-color: #ff204e;
 `;
 
+export const RightSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
 export const AppTitle = styled.h2`
   font-family: Lato, sans-serif;
 

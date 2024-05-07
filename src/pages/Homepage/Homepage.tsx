@@ -10,8 +10,13 @@ import useSpells from "../../lib/hooks/useSpells";
 import { HomepageBodyStyled, HomepageStyled } from "./Homepage.styled";
 
 export default function Homepage() {
-  const { filters, showFavoritesOnly, setFilters, setShowFavoritesOnly } =
-    useFilters();
+  const {
+    filters,
+    showFavoritesOnly,
+    showFiltersSection,
+    setFilters,
+    setShowFavoritesOnly,
+  } = useFilters();
   const { favorites, markSpellAsFavorite } = useFavoriteSpells();
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedSearchQuery = useDebouncedValue(searchQuery, 400);
@@ -37,8 +42,8 @@ export default function Homepage() {
   return (
     <HomepageStyled>
       <Navbar searchQuery={searchQuery} onSearchChange={handleSearchChange} />
-      <HomepageBodyStyled>
-        <FiltersSidebar />
+      <HomepageBodyStyled showFiltersSection={showFiltersSection}>
+        {showFiltersSection && <FiltersSidebar />}
         <Sidebar
           options={spells}
           searchedQuery={debouncedSearchQueryTrimmed}
