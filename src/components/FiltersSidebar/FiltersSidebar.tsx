@@ -4,6 +4,7 @@ import Button from "../Button/Button";
 import Dropdown from "../Dropdown/Dropdown";
 import { SidebarSubtitle } from "../Sidebar/Sidebar.styled";
 import {
+  ButtonsGroup,
   FiltersSidebarStyled,
   FiltersSidebarWrapper,
 } from "./FiltersSidebar.styled";
@@ -27,7 +28,11 @@ export default function FiltersSidebar() {
 
   // when clicking on apply, set the filters to the filters context
   const handleApply = () => {
-    setFilters(values)
+    setFilters(values);
+  };
+
+  const clearAllFilters = () => {
+    setFilters({});
   };
 
   return (
@@ -44,9 +49,14 @@ export default function FiltersSidebar() {
           options={levels}
           onChange={handleChange("level")}
         />
-        <Button variant="default" onClick={handleApply}>
-          Apply
-        </Button>
+        <ButtonsGroup>
+          <Button variant="link" onClick={clearAllFilters}>
+            Clear all
+          </Button>
+          <Button variant="default" onClick={handleApply}>
+            Apply
+          </Button>
+        </ButtonsGroup>
       </FiltersSidebarWrapper>
     </FiltersSidebarStyled>
   );

@@ -47,12 +47,14 @@ export const SidebarFilterStatus = ({
     }));
   return (
     <SidebarFilterStatusStyled>
-      {searchQuery?.trim() && (
-        <SidebarSubtitle>
-          Showing {resultsCount} results for{" "}
-          <BoldItalic title={searchQuery}>{searchQuery}</BoldItalic>
-        </SidebarSubtitle>
-      )}
+      <SidebarSubtitle>
+        Showing {resultsCount} results
+        {searchQuery?.trim() && (
+          <>
+           {' '} for <BoldItalic title={searchQuery}>{searchQuery}</BoldItalic>
+          </>
+        )}
+      </SidebarSubtitle>
 
       {filtersArray.length > 0 && (
         <FilterTagsGroup>

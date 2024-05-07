@@ -52,8 +52,9 @@ export const FilterTagsGroup = styled.div`
   align-items: center;
   flex-wrap: wrap;
   padding: 0 1rem;
+  padding-bottom: 0.5rem;
 
-  &:only-child{
+  &:only-child {
     padding-top: 1rem;
   }
 `;
@@ -66,5 +67,4 @@ export const FilterTag = styled.div`
   line-height: 0.8rem;
   border-radius: 1rem;
   text-transform: capitalize;
-
 `;
