@@ -45,9 +45,7 @@ export default function Homepage() {
           onFavorite={(item) => markSpellAsFavorite(item.index)}
           onClearSearch={handleClearSearch}
         />
-        <div>
-          <Outlet />
-        </div>
+        <Outlet />
       </HomepageBodyStyled>
     </HomepageStyled>
   );
