@@ -66,7 +66,7 @@ export const SidebarFilterStatus = ({
       {filtersArray.length > 0 && (
         <FilterTagsGroup>
           {filtersArray.map((filter) => (
-            <FilterTag>
+            <FilterTag key={filter.key}>
               {filter.key}: {filter.value}
             </FilterTag>
           ))}

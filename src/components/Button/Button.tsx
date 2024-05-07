@@ -12,7 +12,7 @@ export default function Button({
   ...rest
 }: Props) {
   return (
-    <StyledButton isLink={variant === "link"} {...rest}>
+    <StyledButton $isLink={variant === "link"} {...rest}>
       {children}
     </StyledButton>
   );

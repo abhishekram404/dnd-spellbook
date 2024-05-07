@@ -10,7 +10,7 @@ export const SidebarStyled = styled.div`
   overflow-y: auto;
 `;
 
-export const SidebarItemStyled = styled(Link)<{ isActive?: boolean }>`
+export const SidebarItemStyled = styled(Link)<{ $isActive?: boolean }>`
   padding: 1rem;
   color: #fefbf6;
   cursor: pointer;
@@ -18,7 +18,7 @@ export const SidebarItemStyled = styled(Link)<{ isActive?: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${(props) => (props.isActive ? "#fefbf640" : "none")};
+  background-color: ${(props) => (props.$isActive ? "#fefbf640" : "none")};
   text-decoration: none;
 
   &:not(:last-child) {

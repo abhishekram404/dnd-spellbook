@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components";
 
-export const StyledButton = styled.button<{ isLink?: boolean }>`
-  background: ${(props) => (props.isLink ? "transparent" : "#ff204e")};
-  color: ${(props) => (props.isLink ? "#ff204e" : "#fefbf6")};
-  padding: ${(props) => (props.isLink ? 0 : " 0.8rem")};
+export const StyledButton = styled.button<{ $isLink?: boolean }>`
+  background: ${(props) => (props.$isLink ? "transparent" : "#ff204e")};
+  color: ${(props) => (props.$isLink ? "#ff204e" : "#fefbf6")};
+  padding: ${(props) => (props.$isLink ? 0 : " 0.8rem")};
   font-size: 1rem;
   border: none;
   border-radius: 0.3rem;
@@ -15,7 +15,7 @@ export const StyledButton = styled.button<{ isLink?: boolean }>`
   gap: 0.5rem;
 
   ${(props) =>
-    props.isLink
+    props.$isLink
       ? css`
           line-height: 1.8rem;
           &:hover {

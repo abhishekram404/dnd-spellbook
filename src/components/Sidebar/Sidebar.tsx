@@ -49,6 +49,7 @@ export default function Sidebar(props: Props) {
           {options?.map((item) => (
             <SidebarItem
               {...item}
+              key={item.index}
               onFavoriteClick={() => onFavorite?.(item)}
               isActive={index === item.index}
               isFavorite={favoriteSpells?.includes(item.index)}

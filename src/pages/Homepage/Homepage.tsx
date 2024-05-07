@@ -45,7 +45,7 @@ export default function Homepage() {
     <HomepageStyled>
       <Topbar />
       <Navbar searchQuery={searchQuery} onSearchChange={handleSearchChange} />
-      <HomepageBodyStyled showFiltersSection={showFiltersSection}>
+      <HomepageBodyStyled $showFiltersSection={showFiltersSection}>
         {showFiltersSection && <FiltersSidebar />}
         <Sidebar
           options={spells}

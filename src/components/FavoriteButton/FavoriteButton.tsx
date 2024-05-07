@@ -10,7 +10,7 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 export default function FavoriteButton({ isFavorite, ...props }: Props) {
   return (
-    <Root isFavorite={isFavorite} role="button" {...props}>
+    <Root $isFavorite={isFavorite} role="button" {...props}>
       <Icon
         icon={isFavorite ? FILLED : OUTLINED}
         fontSize={22}
@@ -20,7 +20,7 @@ export default function FavoriteButton({ isFavorite, ...props }: Props) {
   );
 }
 
-const Root = styled.button<{ isFavorite?: boolean }>`
+const Root = styled.button<{ $isFavorite?: boolean }>`
   padding: 0.5rem;
   display: grid;
   place-items: center;
@@ -32,6 +32,6 @@ const Root = styled.button<{ isFavorite?: boolean }>`
   cursor: pointer;
 
   &:hover {
-    background-color: ${(props) => (props.isFavorite ? "#fefbf6" : "#ef423f")};
+    background-color: ${(props) => (props.$isFavorite ? "#fefbf6" : "#ef423f")};
   }
 `;

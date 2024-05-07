@@ -21,7 +21,7 @@ export default function SidebarItem(props: Props) {
     onFavoriteClick?.();
   };
   return (
-    <SidebarItemStyled to={`/spells/${index}`} isActive={isActive}>
+    <SidebarItemStyled to={`/spells/${index}`} $isActive={isActive}>
       <SidebarItemTitle>{name}</SidebarItemTitle>
       <FavoriteButton isFavorite={!!isFavorite} onClick={handleFavorite} />
     </SidebarItemStyled>
