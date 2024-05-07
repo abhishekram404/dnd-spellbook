@@ -11,3 +11,15 @@ export const HomepageBodyStyled = styled.div<{ showFiltersSection?: boolean }>`
   grid-template-columns: ${(props) => props.showFiltersSection && "300px"} 300px 1fr;
   height: calc(100% - 73px);
 `;
+
+export const InfoBar = styled.div`
+background: #fefbf6;
+padding: .3rem;
+text-align: center;
+display: flex;
+align-items: center;
+justify-content:center;
+font-size: 1.1rem;
+gap: .3rem;
+
+`

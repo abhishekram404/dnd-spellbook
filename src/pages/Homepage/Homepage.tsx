@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import FiltersSidebar from "../../components/FiltersSidebar/FiltersSidebar";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import Topbar from "../../components/Topbar/Topbar";
 import useDebouncedValue from "../../lib/hooks/useDebouncedValue";
 import useFavoriteSpells from "../../lib/hooks/useFavoriteSpells";
 import useFilters from "../../lib/hooks/useFilters";
@@ -19,6 +20,7 @@ export default function Homepage() {
   } = useFilters();
   const { favorites, markSpellAsFavorite } = useFavoriteSpells();
   const [searchQuery, setSearchQuery] = useState("");
+
   const debouncedSearchQuery = useDebouncedValue(searchQuery, 400);
   const debouncedSearchQueryTrimmed = debouncedSearchQuery.trim();
 
@@ -41,6 +43,7 @@ export default function Homepage() {
 
   return (
     <HomepageStyled>
+      <Topbar />
       <Navbar searchQuery={searchQuery} onSearchChange={handleSearchChange} />
       <HomepageBodyStyled showFiltersSection={showFiltersSection}>
         {showFiltersSection && <FiltersSidebar />}
