@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import { BoldItalic } from "../BoldItalic/BoldItalic";
-import { SidebarNoResult } from "./Sidebar.components";
+import { Filters } from "../../lib/providers/FiltersProvider";
+import { SidebarFilterStatus, SidebarNoResult } from "./Sidebar.components";
 import { SidebarStyled, SidebarSubtitle } from "./Sidebar.styled";
 import SidebarItem, { SidebarItemType } from "./SidebarItem";
 
@@ -9,6 +9,7 @@ type Props = {
   searchedQuery?: string;
   isLoading?: boolean;
   favoriteSpells?: string[];
+  filters: Filters;
   onItemSelect?: (item: SidebarItemType) => void;
   onFavorite?: (item: SidebarItemType) => void;
   onClearSearch?: VoidFunction;
@@ -21,6 +22,7 @@ export default function Sidebar(props: Props) {
     searchedQuery,
     isLoading,
     favoriteSpells,
+    filters,
     onFavorite,
     onClearSearch,
   } = props;
@@ -36,12 +38,14 @@ export default function Sidebar(props: Props) {
         />
       ) : (
         <>
-          {searchedQuery?.trim() && (
-            <SidebarSubtitle>
-              Showing {options?.length} results for{" "}
-              <BoldItalic title={searchedQuery}>{searchedQuery}</BoldItalic>
-            </SidebarSubtitle>
-          )}
+          {/* shows the applied filters status. e.g. searched query, applied filter chips */}
+          <SidebarFilterStatus
+            searchQuery={searchedQuery}
+            resultsCount={options?.length}
+            filters={filters}
+          />
+
+          {/* shows list of spells */}
           {options?.map((item) => (
             <SidebarItem
               {...item}

@@ -1,6 +1,6 @@
 import React, { createContext, PropsWithChildren, useState } from "react";
 
-type Filters = {
+export type Filters = {
   school?: string;
   level?: string | number;
 };

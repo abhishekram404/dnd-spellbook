@@ -40,6 +40,7 @@ export default function Homepage() {
           searchedQuery={debouncedSearchQueryTrimmed}
           isLoading={isSpellsLoading}
           favoriteSpells={favorites}
+          filters={filters}
           onFavorite={(item) => markSpellAsFavorite(item.index)}
           onClearSearch={handleClearSearch}
         />
