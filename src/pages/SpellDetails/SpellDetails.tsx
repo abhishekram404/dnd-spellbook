@@ -15,9 +15,7 @@ import {
   Text,
 } from "./SpellDetails.styled";
 
-type Props = {};
-
-const SpellDetails = (props: Props) => {
+const SpellDetails = () => {
   const { index = "" } = useParams();
   const { data, isLoading } = useQuery({
     queryKey: [index],
