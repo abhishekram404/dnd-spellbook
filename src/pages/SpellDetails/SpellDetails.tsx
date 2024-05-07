@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
+import HomepageBodyInfo from "../../components/HomepageBodyInfo/HomepageBodyInfo";
 import { fetchSpellByIndex } from "../../lib/services/fetchSpellByIndex";
 import { textMapper } from "../../lib/utils/textMapper";
 import { SpecificationItem } from "./SpecificationItem";
@@ -11,7 +12,7 @@ import {
   SpellDetailsStyled,
   SpellSpecificationsStyled,
   SpellTitle,
-  Text
+  Text,
 } from "./SpellDetails.styled";
 
 type Props = {};
@@ -23,7 +24,7 @@ const SpellDetails = (props: Props) => {
     queryFn: () => fetchSpellByIndex(index),
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <HomepageBodyInfo>Please wait...</HomepageBodyInfo>;
   return (
     <SpellDetailsStyled>
       <SpellTitle>{data.name}</SpellTitle>
