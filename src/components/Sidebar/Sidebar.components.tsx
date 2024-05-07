@@ -18,11 +18,17 @@ export const SidebarNoResult = ({
 }) => {
   return (
     <SidebarSubtitle>
-      No results found for <BoldItalic>{searchQuery}</BoldItalic>
+      No results found
+      {searchQuery?.trim() && (
+        <>
+          {" "}
+          for <BoldItalic>{searchQuery}</BoldItalic>
+        </>
+      )}
       <br />
       <Button variant="link" onClick={onClearSearch}>
         <Icon icon={"mdi:clear-outline"} />
-        Clear search
+        Clear filters
       </Button>
     </SidebarSubtitle>
   );
@@ -51,7 +57,8 @@ export const SidebarFilterStatus = ({
         Showing {resultsCount} results
         {searchQuery?.trim() && (
           <>
-           {' '} for <BoldItalic title={searchQuery}>{searchQuery}</BoldItalic>
+            {" "}
+            for <BoldItalic title={searchQuery}>{searchQuery}</BoldItalic>
           </>
         )}
       </SidebarSubtitle>
