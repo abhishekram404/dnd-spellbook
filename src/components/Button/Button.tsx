@@ -1,19 +1,19 @@
-import React from "react";
-import { StyledButton } from "./Button.styled";
+import React from 'react'
+import { StyledButton } from './Button.styled'
 
 type Props = React.HTMLAttributes<HTMLButtonElement> & {
-  children: React.ReactNode;
-  variant?: "default" | "link";
-};
+  children: React.ReactNode
+  variant?: 'default' | 'link'
+}
 
 export default function Button({
   children,
-  variant = "default",
+  variant = 'default',
   ...rest
 }: Props) {
   return (
-    <StyledButton $isLink={variant === "link"} {...rest}>
+    <StyledButton $isLink={variant === 'link'} {...rest}>
       {children}
     </StyledButton>
-  );
+  )
 }

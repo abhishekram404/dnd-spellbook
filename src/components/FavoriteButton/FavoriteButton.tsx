@@ -1,23 +1,23 @@
-import styled from "styled-components";
-import { Icon } from "@iconify/react";
-import { ButtonHTMLAttributes } from "react";
+import { Icon } from '@iconify/react'
+import { ButtonHTMLAttributes } from 'react'
+import styled from 'styled-components'
 
-const OUTLINED = "material-symbols:favorite-outline";
-const FILLED = "material-symbols:favorite";
+const OUTLINED = 'material-symbols:favorite-outline'
+const FILLED = 'material-symbols:favorite'
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
-  isFavorite: boolean;
-};
+  isFavorite: boolean
+}
 export default function FavoriteButton({ isFavorite, ...props }: Props) {
   return (
     <Root $isFavorite={isFavorite} role="button" {...props}>
       <Icon
         icon={isFavorite ? FILLED : OUTLINED}
         fontSize={22}
-        color={isFavorite ? "#ef423f" : "#fefbf6"}
+        color={isFavorite ? '#ef423f' : '#fefbf6'}
       />
     </Root>
-  );
+  )
 }
 
 const Root = styled.button<{ $isFavorite?: boolean }>`
@@ -32,6 +32,6 @@ const Root = styled.button<{ $isFavorite?: boolean }>`
   cursor: pointer;
 
   &:hover {
-    background-color: ${(props) => (props.$isFavorite ? "#fefbf6" : "#ef423f")};
+    background-color: ${props => (props.$isFavorite ? '#fefbf6' : '#ef423f')};
   }
-`;
+`

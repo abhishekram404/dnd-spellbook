@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from 'react'
 
 export const BoldItalic = ({
   children,
@@ -7,4 +7,4 @@ export const BoldItalic = ({
   <b {...props}>
     <i>{children}</i>
   </b>
-);
+)

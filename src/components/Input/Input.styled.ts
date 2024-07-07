@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const InputRoot = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ export const InputRoot = styled.div`
   background: #00224d60;
   padding-left: 0.6rem;
   border-radius: 0.3rem;
-`;
+`
 
 export const InputStyled = styled.input`
   flex: 1;
@@ -22,4 +22,4 @@ export const InputStyled = styled.input`
   &::placeholder {
     color: #fefbf680;
   }
-`;
+`

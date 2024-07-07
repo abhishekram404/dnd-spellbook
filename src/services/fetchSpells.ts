@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from 'axios'
 
 export const fetchSpells = async (params: object) =>
   (
-    await axios.get("/spells", {
+    await axios.get('/spells', {
       params,
     })
-  ).data;
+  ).data
