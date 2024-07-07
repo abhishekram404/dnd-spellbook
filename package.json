@@ -20,6 +20,7 @@
   "devDependencies": {
     "@iconify/react": "^4.1.1",
     "@tanstack/eslint-plugin-query": "^5.32.1",
+    "@types/node": "^20.14.10",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
@@ -35,6 +36,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.6",
     "prettier": "^3.3.2",
+    "prettier-plugin-organize-imports": "^4.0.0",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   }
