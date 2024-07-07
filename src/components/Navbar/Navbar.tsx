@@ -1,24 +1,24 @@
-import { Icon } from "@iconify/react/dist/iconify.js";
-import React from "react";
-import { Link } from "react-router-dom";
-import useFilters from "../../lib/hooks/useFilters";
-import Checkbox from "../Checkbox/Checkbox";
-import Input from "../Input/Input";
-import { AppTitle, NavbarStyled, RightSection } from "./Navbar.styled";
+import { Icon } from '@iconify/react/dist/iconify.js'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import Checkbox from '../Checkbox/Checkbox'
+import Input from '../Input/Input'
+import { AppTitle, NavbarStyled, RightSection } from './Navbar.styled'
+import useFilters from '../../hooks/useFilters'
 
 type Props = {
-  searchQuery: string;
-  onSearchChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
+  searchQuery: string
+  onSearchChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
 
 export default function Navbar({ searchQuery, onSearchChange }: Props) {
-  const { showFiltersSection, setShowFiltersSection } = useFilters();
+  const { showFiltersSection, setShowFiltersSection } = useFilters()
 
   const handleAdvanceFiltersCheckboxChanges = (
-    e: React.ChangeEvent<HTMLInputElement>
+    e: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    setShowFiltersSection(e.target.checked);
-  };
+    setShowFiltersSection(e.target.checked)
+  }
 
   return (
     <NavbarStyled>
@@ -36,8 +36,8 @@ export default function Navbar({ searchQuery, onSearchChange }: Props) {
           leftIcon={<Icon icon="bx:search" color="#fefbf6" fontSize={20} />}
           value={searchQuery}
           onChange={onSearchChange}
-        />{" "}
+        />{' '}
       </RightSection>
     </NavbarStyled>
-  );
+  )
 }

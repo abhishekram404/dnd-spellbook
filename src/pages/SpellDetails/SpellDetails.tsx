@@ -1,10 +1,9 @@
-import { Icon } from "@iconify/react/dist/iconify.js";
-import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
-import HomepageBodyInfo from "../../components/HomepageBodyInfo/HomepageBodyInfo";
-import { fetchSpellByIndex } from "../../lib/services/fetchSpellByIndex";
-import { textMapper } from "../../lib/utils/textMapper";
-import { SpecificationItem } from "./SpecificationItem";
+import { Icon } from '@iconify/react/dist/iconify.js'
+import { useQuery } from '@tanstack/react-query'
+import { useParams } from 'react-router-dom'
+import HomepageBodyInfo from '../../components/HomepageBodyInfo/HomepageBodyInfo'
+import { fetchSpellByIndex } from '../../services/fetchSpellByIndex'
+import { SpecificationItem } from './SpecificationItem'
 import {
   Group,
   SectionSubtitle,
@@ -13,31 +12,32 @@ import {
   SpellSpecificationsStyled,
   SpellTitle,
   Text,
-} from "./SpellDetails.styled";
+} from './SpellDetails.styled'
+import { textMapper } from '../../utils/textMapper'
 
 const SpellDetails = () => {
-  const { index = "" } = useParams();
+  const { index = '' } = useParams()
   const { data, isLoading } = useQuery({
     queryKey: [index],
     queryFn: () => fetchSpellByIndex(index),
-  });
+  })
 
-  if (isLoading) return <HomepageBodyInfo>Please wait...</HomepageBodyInfo>;
+  if (isLoading) return <HomepageBodyInfo>Please wait...</HomepageBodyInfo>
   return (
     <SpellDetailsStyled>
       <SpellTitle>{data.name}</SpellTitle>
       <Group>
         <SectionSubtitle>Specifications</SectionSubtitle>
         <SpellSpecificationsStyled>
-          <SpecificationItem title={"LEVEL"} value={data.level} />
-          <SpecificationItem title={"CASTING TIME"} value={data.casting_time} />
-          <SpecificationItem title={"RANGE/AREA"} value={data.range} />
+          <SpecificationItem title={'LEVEL'} value={data.level} />
+          <SpecificationItem title={'CASTING TIME'} value={data.casting_time} />
+          <SpecificationItem title={'RANGE/AREA'} value={data.range} />
           <SpecificationItem
-            title={"COMPONENTS"}
+            title={'COMPONENTS'}
             value={data.components.toString()}
           />
-          <SpecificationItem title={"DURATION"} value={data.duration} />
-          <SpecificationItem title={"SCHOOL"} value={data.school.name} />
+          <SpecificationItem title={'DURATION'} value={data.duration} />
+          <SpecificationItem title={'SCHOOL'} value={data.school.name} />
         </SpellSpecificationsStyled>
       </Group>
 
@@ -50,10 +50,10 @@ const SpellDetails = () => {
         <Group>
           <SectionSubtitleWithLeadingIcon>
             <Icon
-              icon={"mdi:chevron-double-up"}
+              icon={'mdi:chevron-double-up'}
               color="#ff204e"
               fontSize={25}
-            />{" "}
+            />{' '}
             At Higher Levels
           </SectionSubtitleWithLeadingIcon>
           {textMapper(data.higher_level, true)}
@@ -68,7 +68,7 @@ const SpellDetails = () => {
 
       <Group></Group>
     </SpellDetailsStyled>
-  );
-};
+  )
+}
 
-export default SpellDetails;
+export default SpellDetails
