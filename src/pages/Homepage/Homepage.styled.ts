@@ -10,6 +10,10 @@ export const HomepageBodyStyled = styled.div<{ $showFiltersSection?: boolean }>`
   display: grid;
   grid-template-columns: ${props => props.$showFiltersSection && '300px'} 300px 1fr;
   height: calc(100% - 73px);
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const InfoBar = styled.div`

@@ -6,6 +6,8 @@ export const SpellDetailsStyled = styled.main`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  height: 100%;
+  overflow-y: auto;
 `
 
 export const SpellTitle = styled.h1``
