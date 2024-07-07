@@ -1,8 +1,9 @@
+import HomepageBodyInfo from '@components/HomepageBodyInfo/HomepageBodyInfo'
 import { Icon } from '@iconify/react/dist/iconify.js'
+import { fetchSpellByIndex } from '@services/fetchSpellByIndex'
 import { useQuery } from '@tanstack/react-query'
+import { textMapper } from '@utils/textMapper'
 import { useParams } from 'react-router-dom'
-import HomepageBodyInfo from '../../components/HomepageBodyInfo/HomepageBodyInfo'
-import { fetchSpellByIndex } from '../../services/fetchSpellByIndex'
 import { SpecificationItem } from './SpecificationItem'
 import {
   Group,
@@ -13,7 +14,6 @@ import {
   SpellTitle,
   Text,
 } from './SpellDetails.styled'
-import { textMapper } from '../../utils/textMapper'
 
 const SpellDetails = () => {
   const { index = '' } = useParams()

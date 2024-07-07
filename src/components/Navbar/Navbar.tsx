@@ -1,10 +1,10 @@
+import Checkbox from '@components/Checkbox/Checkbox'
+import Input from '@components/Input/Input'
+import useFilters from '@hooks/useFilters'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Checkbox from '../Checkbox/Checkbox'
-import Input from '../Input/Input'
 import { AppTitle, NavbarStyled, RightSection } from './Navbar.styled'
-import useFilters from '../../hooks/useFilters'
 
 type Props = {
   searchQuery: string

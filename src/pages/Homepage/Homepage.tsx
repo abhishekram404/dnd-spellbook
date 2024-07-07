@@ -1,14 +1,14 @@
+import FiltersSidebar from '@components/FiltersSidebar/FiltersSidebar'
+import Navbar from '@components/Navbar/Navbar'
+import Sidebar from '@components/Sidebar/Sidebar'
+import Topbar from '@components/Topbar/Topbar'
+import useDebouncedValue from '@hooks/useDebouncedValue'
+import useFavoriteSpells from '@hooks/useFavoriteSpells'
+import useFilters from '@hooks/useFilters'
+import useSpells from '@hooks/useSpells'
 import React, { useState } from 'react'
 import { Outlet } from 'react-router-dom'
-import FiltersSidebar from '../../components/FiltersSidebar/FiltersSidebar'
-import Navbar from '../../components/Navbar/Navbar'
-import Sidebar from '../../components/Sidebar/Sidebar'
-import Topbar from '../../components/Topbar/Topbar'
 import { HomepageBodyStyled, HomepageStyled } from './Homepage.styled'
-import useDebouncedValue from '../../hooks/useDebouncedValue'
-import useFavoriteSpells from '../../hooks/useFavoriteSpells'
-import useFilters from '../../hooks/useFilters'
-import useSpells from '../../hooks/useSpells'
 
 export default function Homepage() {
   const {

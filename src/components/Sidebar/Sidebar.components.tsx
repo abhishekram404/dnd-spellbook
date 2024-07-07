@@ -1,13 +1,13 @@
+import { BoldItalic } from '@components/BoldItalic/BoldItalic'
+import Button from '@components/Button/Button'
 import { Icon } from '@iconify/react/dist/iconify.js'
-import { BoldItalic } from '../BoldItalic/BoldItalic'
-import Button from '../Button/Button'
+import { Filters } from '@providers/FiltersProvider'
 import {
   FilterTag,
   FilterTagsGroup,
   SidebarFilterStatusStyled,
   SidebarSubtitle,
 } from './Sidebar.styled'
-import { Filters } from '../../providers/FiltersProvider'
 
 export const SidebarNoResult = ({
   searchQuery,

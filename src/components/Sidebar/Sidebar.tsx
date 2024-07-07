@@ -1,5 +1,5 @@
+import { Filters } from '@providers/FiltersProvider'
 import { useParams } from 'react-router-dom'
-import { Filters } from '../../providers/FiltersProvider'
 import { SidebarFilterStatus, SidebarNoResult } from './Sidebar.components'
 import { SidebarStyled, SidebarSubtitle } from './Sidebar.styled'
 import SidebarItem, { SidebarItemType } from './SidebarItem'

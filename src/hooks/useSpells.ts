@@ -1,7 +1,7 @@
+import { SidebarItemType } from '@components/Sidebar/SidebarItem'
+import { fetchSpells } from '@services/fetchSpells'
 import { useQuery } from '@tanstack/react-query'
 import { useMemo } from 'react'
-import { fetchSpells } from '../services/fetchSpells'
-import { SidebarItemType } from '../components/Sidebar/SidebarItem'
 
 type Props = {
   searchQuery: string
