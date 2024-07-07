@@ -1,5 +1,6 @@
 import FavoriteButton from '@components/FavoriteButton/FavoriteButton'
 import { SidebarItemStyled, SidebarItemTitle } from './Sidebar.styled'
+
 export type SidebarItemType = {
   index: string
   level: number

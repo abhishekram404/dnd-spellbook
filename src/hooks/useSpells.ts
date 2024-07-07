@@ -42,6 +42,6 @@ export default function useSpells({
 
   return {
     spells: results,
-    isSpellsLoading: isSpellsLoading,
+    isSpellsLoading,
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text } from '../pages/SpellDetails/SpellDetails.styled'
+
 export const textMapper = (
   textArray: string[],
   breakAfterEachLine?: boolean,

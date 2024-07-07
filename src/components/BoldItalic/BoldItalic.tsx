@@ -1,10 +1,12 @@
 import React, { PropsWithChildren } from 'react'
 
-export const BoldItalic = ({
+export function BoldItalic({
   children,
   ...props
-}: PropsWithChildren & React.HTMLAttributes<HTMLParagraphElement>) => (
-  <b {...props}>
-    <i>{children}</i>
-  </b>
-)
+}: PropsWithChildren & React.HTMLAttributes<HTMLParagraphElement>) {
+  return (
+    <b {...props}>
+      <i>{children}</i>
+    </b>
+  )
+}

@@ -5,7 +5,7 @@ type Props = React.InputHTMLAttributes<HTMLInputElement> & {
   leftIcon?: ReactNode
   rightIcon?: ReactNode
 }
-export const Input = (props: Props) => {
+export function Input(props: Props) {
   const { leftIcon, rightIcon, ...restProps } = props
   return (
     <InputRoot>

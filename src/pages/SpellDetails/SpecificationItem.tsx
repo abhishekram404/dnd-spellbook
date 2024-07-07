@@ -4,13 +4,13 @@ import {
   SpecificatonTitle,
 } from './SpellDetails.styled'
 
-export const SpecificationItem = ({
+export function SpecificationItem({
   title,
   value,
 }: {
   title: string
   value: any
-}) => {
+}) {
   return (
     <SpecificationStyled>
       <SpecificatonTitle>{title}</SpecificatonTitle>

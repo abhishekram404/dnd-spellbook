@@ -9,13 +9,13 @@ import {
   SidebarSubtitle,
 } from './Sidebar.styled'
 
-export const SidebarNoResult = ({
+export function SidebarNoResult({
   searchQuery,
   onClearSearch,
 }: {
   searchQuery?: string
   onClearSearch?: VoidFunction
-}) => {
+}) {
   return (
     <SidebarSubtitle>
       No results found
@@ -27,7 +27,7 @@ export const SidebarNoResult = ({
       )}
       <br />
       <Button variant="link" onClick={onClearSearch}>
-        <Icon icon={'mdi:clear-outline'} />
+        <Icon icon="mdi:clear-outline" />
         Clear filters
       </Button>
     </SidebarSubtitle>
@@ -40,11 +40,11 @@ type SidebarFilterStatusProps = {
   filters?: Filters
 }
 
-export const SidebarFilterStatus = ({
+export function SidebarFilterStatus({
   searchQuery,
   resultsCount,
   filters = {},
-}: SidebarFilterStatusProps) => {
+}: SidebarFilterStatusProps) {
   const filtersArray = Object.entries(filters)
     .filter(a => a[1])
     .map(([key, value]) => ({

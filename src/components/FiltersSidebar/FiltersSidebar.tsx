@@ -48,12 +48,12 @@ export default function FiltersSidebar() {
       <SidebarSubtitle>Filters</SidebarSubtitle>
       <FiltersSidebarWrapper>
         <Dropdown
-          title={'School'}
+          title="School"
           options={schools}
           onChange={handleChange('school')}
         />
         <Dropdown
-          title={'Level'}
+          title="Level"
           options={levels}
           onChange={handleChange('level')}
         />

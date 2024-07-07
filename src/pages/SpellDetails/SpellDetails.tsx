@@ -15,7 +15,7 @@ import {
   Text,
 } from './SpellDetails.styled'
 
-const SpellDetails = () => {
+function SpellDetails() {
   const { index = '' } = useParams()
   const { data, isLoading } = useQuery({
     queryKey: [index],
@@ -29,15 +29,15 @@ const SpellDetails = () => {
       <Group>
         <SectionSubtitle>Specifications</SectionSubtitle>
         <SpellSpecificationsStyled>
-          <SpecificationItem title={'LEVEL'} value={data.level} />
-          <SpecificationItem title={'CASTING TIME'} value={data.casting_time} />
-          <SpecificationItem title={'RANGE/AREA'} value={data.range} />
+          <SpecificationItem title="LEVEL" value={data.level} />
+          <SpecificationItem title="CASTING TIME" value={data.casting_time} />
+          <SpecificationItem title="RANGE/AREA" value={data.range} />
           <SpecificationItem
-            title={'COMPONENTS'}
+            title="COMPONENTS"
             value={data.components.toString()}
           />
-          <SpecificationItem title={'DURATION'} value={data.duration} />
-          <SpecificationItem title={'SCHOOL'} value={data.school.name} />
+          <SpecificationItem title="DURATION" value={data.duration} />
+          <SpecificationItem title="SCHOOL" value={data.school.name} />
         </SpellSpecificationsStyled>
       </Group>
 
@@ -49,11 +49,7 @@ const SpellDetails = () => {
       {data.higher_level.length > 0 && (
         <Group>
           <SectionSubtitleWithLeadingIcon>
-            <Icon
-              icon={'mdi:chevron-double-up'}
-              color="#ff204e"
-              fontSize={25}
-            />{' '}
+            <Icon icon="mdi:chevron-double-up" color="#ff204e" fontSize={25} />{' '}
             At Higher Levels
           </SectionSubtitleWithLeadingIcon>
           {textMapper(data.higher_level, true)}
@@ -66,7 +62,7 @@ const SpellDetails = () => {
         </Text>
       )}
 
-      <Group></Group>
+      <Group />
     </SpellDetailsStyled>
   )
 }

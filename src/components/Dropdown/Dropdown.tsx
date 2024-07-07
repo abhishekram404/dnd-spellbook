@@ -12,11 +12,11 @@ type Props = {
   onChange?: React.ChangeEventHandler<HTMLSelectElement>
 }
 
-const Dropdown = ({ title, options, onChange }: Props) => {
+function Dropdown({ title, options, onChange }: Props) {
   return (
     <Root>
       <label htmlFor="dropdown">{title}</label>
-      <StyledSelect id="dropdown" onChange={onChange} defaultValue={'default'}>
+      <StyledSelect id="dropdown" onChange={onChange} defaultValue="default">
         {options.map(option => (
           <StyledOption key={option.value} value={option.value}>
             {option.label}
