@@ -36,4 +36,4 @@ jobs:
           docker pull abhishekram404/dnd-spellbook:latest
           docker stop dnd-spellbook || true
           docker rm dnd-spellbook || true
-          docker run -d --name dnd-spellbook -p 80:80 abhishekram404/dnd-spellbook:latest
+          docker run -d --name dnd-spellbook -p 4840:80 abhishekram404/dnd-spellbook:latest
