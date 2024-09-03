@@ -8,8 +8,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
+    -
+        name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Checkout code
       uses: actions/checkout@v2
 
@@ -19,7 +24,6 @@ jobs:
     - name: Build and push Docker image
       run: |
         docker buildx build --platform linux/amd64 -t abhishekram404/dnd-spellbook:latest --push .
-        docker push abhishekram404/dnd-spellbook:latest
 
   deploy:
     needs: build
