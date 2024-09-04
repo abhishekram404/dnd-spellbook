@@ -29,13 +29,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - name: SSH to Raspberry Pi and Deploy
-      uses: appleboy/ssh-action@v0.1.3
+    - name: SSH to Raspberry Pi using Tailscale and Deploy
+      uses: tailscale/github-action@v2
       with:
-        host: ${{ secrets.PI_HOST }}
-        username: ${{ secrets.PI_USER }}
-        key: ${{ secrets.PI_SSH_KEY }}
-        port: ${{ secrets.PI_PORT }}
+        oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+        oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+        tags: tag:ci
         script: |
           docker pull abhishekram404/dnd-spellbook:latest
           docker stop dnd-spellbook || true
