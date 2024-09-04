@@ -29,14 +29,18 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - name: SSH to Raspberry Pi using Tailscale and Deploy
-      uses: tailscale/github-action@v2
-      with:
-        oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
-        oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
-        tags: tag:ci
-        script: |
-          docker pull abhishekram404/dnd-spellbook:latest
-          docker stop dnd-spellbook || true
-          docker rm dnd-spellbook || true
-          docker run -d --name dnd-spellbook -p 4840:80 abhishekram404/dnd-spellbook:latest
+     - name: Tailscale
+       uses: tailscale/github-action@v2
+       with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
+          
+     - name: Deploy to Raspberry Pi
+       run: |
+         ssh raspi <<EOF
+         docker pull abhishekram404/dnd-spellbook:latest
+         docker stop dnd-spellbook || true
+         docker rm dnd-spellbook || true
+         docker run -d --name dnd-spellbook -p 4840:80 abhishekram404/dnd-spellbook:latest
+         EOF
