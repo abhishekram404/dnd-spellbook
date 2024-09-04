@@ -39,7 +39,7 @@ jobs:
      - name: Deploy to Raspberry Pi
        run: |
          docker pull abhishekram404/dnd-spellbook:latest
-         docker stop dnd-spellbook || true
-         docker rm dnd-spellbook || true
+         docker stop dnd-spellbook > /dev/null 2>&1 || true
+         docker rm dnd-spellbook > /dev/null 2>&1 || true
          docker run -d --name dnd-spellbook -p 4840:80 abhishekram404/dnd-spellbook:latest
          EOF
