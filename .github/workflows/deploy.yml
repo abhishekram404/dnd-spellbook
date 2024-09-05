@@ -38,7 +38,7 @@ jobs:
           
      - name: Deploy to Raspberry Pi
        run: |
-         ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null keshav@raspi
+         ssh raspi -l keshav
          tailscale status
          docker ps
          docker pull abhishekram404/dnd-spellbook:latest
