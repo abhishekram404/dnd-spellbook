@@ -26,7 +26,7 @@ jobs:
         docker buildx build --platform linux/arm64 -t abhishekram404/dnd-spellbook:latest --push .
 
   deploy:
-    # needs: build
+    needs: build
     runs-on: ubuntu-latest
     steps:
      - name: Tailscale
