@@ -42,5 +42,5 @@ jobs:
          docker pull ${{ secrets.DOCKERHUB_REPO }}:${{ secrets.DOCKER_IMAGE_TAG }}
          docker stop ${{ secrets.CONTAINER_NAME }} > /dev/null 2>&1 || true
          docker rm ${{ secrets.CONTAINER_NAME }} > /dev/null 2>&1 || true
-         docker run -d --name ${{ secrets.CONTAINER_NAME }} -p ${{ env.EXPOSED_PORT }}:80 ${{ secrets.DOCKERHUB_REPO }}:${{ secrets.DOCKER_IMAGE_TAG }}
+         docker run -d --name ${{ secrets.CONTAINER_NAME }} -p ${{ secrets.EXPOSED_PORT }}:80 ${{ secrets.DOCKERHUB_REPO }}:${{ secrets.DOCKER_IMAGE_TAG }}
          "
