@@ -35,15 +35,10 @@ jobs:
           oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tags: tag:runner
-          
-     - name: Add SSH Key
-       run: |
-          echo "${{ secrets.PI_SSH_KEY }}" > private_key
-          chmod 600 private_key
-          
+
      - name: Deploy to Raspberry Pi
        run: |
-         ssh -o "StrictHostKeyChecking=no" -i private_key keshav@raspi
+         ssh -o "StrictHostKeyChecking no" keshav@raspi
          tailscale status
          docker ps
          docker pull abhishekram404/dnd-spellbook:latest
