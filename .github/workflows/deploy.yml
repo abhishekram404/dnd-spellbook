@@ -38,7 +38,7 @@ jobs:
 
      - name: Deploy to Raspberry Pi
        run: |
-         ssh -o "StrictHostKeyChecking no" keshav@raspi
+         ssh -o "StrictHostKeyChecking no" keshav@raspi "
          tailscale status
          docker ps
          docker pull abhishekram404/dnd-spellbook:latest
@@ -46,3 +46,4 @@ jobs:
          docker rm dnd-spellbook > /dev/null 2>&1 || true
          docker run -d --name dnd-spellbook -p 4840:80 abhishekram404/dnd-spellbook:latest
          docker ps
+         "
